@@ -3,4 +3,29 @@
   <groupId>com.yc</groupId>
   <artifactId>C83-S3-Pzm-spring</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  
+    <!-- 配置工程的属性 -->
+   <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>       
+    </properties>
+    
+      <dependencies>
+      	<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>5.2.4.RELEASE</version>
+		</dependency>
+		
+		
+		<dependency>  
+		  <groupId>junit</groupId> 
+		  <artifactId>junit</artifactId> 
+		  <version>4.12-beta-1</version> 
+		</dependency>
+      </dependencies>
 </project>
