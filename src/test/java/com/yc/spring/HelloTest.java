@@ -64,7 +64,7 @@ public class HelloTest {
 		ClassPathXmlApplicationContext ctx = new 	ClassPathXmlApplicationContext("beans.xml");
 		//UserDao udao1=new MySQLUserDao();
 		UserDao udao1 = (UserDao) ctx.getBean("mdao");
-		UserDao udao2 = (UserDao) ctx.getBean("mdao");
+		UserDao udao2 = (UserDao) ctx.getBean("odao");
 		
 		udao1.selectUserId("zhangsan");
 		udao2.selectUserId("zhangsan");
@@ -82,7 +82,7 @@ public class HelloTest {
 	
 	@Test
 	public void test3() {
-		Person p1 = ctx.getBean(Person.class);
+		Person p1 = ctx.getBean(Person.class);//没有定义id,也可以用类来获取
 		Assert.assertEquals("李逵", p1.getName());
 		Assert.assertEquals(33, p1.getAge());
 		Assert.assertEquals(null, p1.getKilleds());

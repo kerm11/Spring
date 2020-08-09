@@ -34,11 +34,12 @@
    		</property>
    	</bean>
 
-	<!-- primary="true" 设置当前的bean是主要的,默认class方式获取的bean -->
+	<!--和上面定义的类冲突 primary="true" 设置当前的bean是主要的,默认class方式获取的bean -->
 	<bean class="com.yc.spring.bean.Person" primary="true" >
 		<constructor-arg name="name" value="李逵" index="1"></constructor-arg>
 		<constructor-arg name="alisa" value="黑旋风" index="2"></constructor-arg>
-		<constructor-arg name="age" value="33" index="3"></constructor-arg>
+		<!-- index用于判断构造函数的属性的位置 -->
+		<constructor-arg name="age" value="33" index="0"></constructor-arg>
 	</bean>
 
 	<!-- ref 引用其他的bean -->
@@ -58,7 +59,7 @@
 		<property name="name"  value="王英"></property>	
 	</bean>
 	
-	<!-- 实例工厂方法配置 -->
+	<!-- 实例工厂方法配置 --><!-- factory-bean -->
 	<bean  id="p6" class="com.yc.spring.bean.Person" factory-method="PersonFactory1" factory-bean="PersonFactory">
 		<property name="name"  value="扈三娘"></property>	
 	</bean>
