@@ -7,5 +7,89 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
      http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean  id="myUser" class="com.yc.spring.bbs.bean.User">
+   		<!-- property 实现setter 注入 -->
+   		<property name="uname"  value="武松"></property>
+   		<property name="upass"  value="abc123"></property>
+   		<property name="head"  value="20.gif"></property>
+   		<property name="gender"  value="1"></property>
+   	</bean>
+   	
+   	<!--和上面定义的类冲突 primary="true" 设置当前的bean是主要的,默认class方式获取的bean -->
+	<bean class="com.yc.spring.bbs.bean.User" primary="true" >
+		<!-- property 实现setter 注入 -->
+   		<property name="uname"  value="石秀"></property>
+   		<property name="upass"  value="XYZ890"></property>
+   		<property name="head"  value="345.gif"></property>
+   		<property name="gender"  value="0"></property>
+	</bean>
+
+   <!-- 注入的例子使用的是实体对象,实际开发中很少对实体对象设值 -->
+   	<bean  id="page1" class="com.yc.spring.bbs.bean.Page">
+   		<!-- property 实现setter 注入 -->
+   		<property name="total"  value="100"></property>
+   		<property name="rows">
+   			<list>
+   				<value type="java.lang.String">湖南</value>
+   				<value>广东</value>
+   				<value>null</value>
+   				<value type="java.lang.Integer">100</value>
+   			</list> 		
+   		</property>
+   	</bean>
+   	
+   	<!-- ref 引用其他的bean -->
+	<bean  id="board" class="com.yc.spring.bbs.bean.Board">
+		<constructor-arg name="boardid"  value="100"/>
+   		<constructor-arg name="boardname"  value="jsp"/>
+		<constructor-arg name="parentid"  value="200"/>
+		<property name="parent" >
+			<bean  class="com.yc.spring.bbs.bean.Board">
+				<constructor-arg name="boardid"  value="300"/>
+		   		<constructor-arg name="boardname"  value="java"/>
+				<constructor-arg name="parentid"  value="0"/>		
+			</bean>	
+		</property>
+		<property name="topicList" >
+			<list>
+				<null></null>
+				<null></null>
+				<null></null>
+				<bean class="com.yc.spring.bbs.bean.Topic">
+					<property name="uid">
+							<value type="java.lang.Integer">400</value>
+					</property>
+				</bean>
+				<null ></null>
+			</list>		
+		</property>
+	</bean>
+
+	<bean  id="page2" class="com.yc.spring.bbs.bean.Page">
+   	
+   		<property name="total"  value="200"></property>
+   		<property name="rows">
+   			<list>
+   				<bean	class="com.yc.spring.bbs.bean.User">
+   					<property name="uname"  value="华荣"></property>
+   				</bean>
+   				<map>
+   					 <entry key="衡阳" value="0734"/>
+			          <entry key="长沙" value="0731"/>
+   				</map>
+   				<set>
+   						<value type="java.lang.Integer">100</value>
+   						<value >100</value>
+   						<ref bean="myUser"  />
+   				</set>
+   			</list> 	   		
+   		</property>
+   	</bean>
+
+	<bean  id="p3" class="com.yc.spring.bbs.bean.User">
+		<property name="uname"  value="华荣"></property>	
+	</bean>
+
 </beans>
 <!-- 作业, 导入该工程到eclipse, 完成xml文件配置, 使单元测试可以运行通过( 注解配置先跳过 ) -->

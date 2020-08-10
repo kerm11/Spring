@@ -42,6 +42,14 @@ public class Account {
 		}
 		return singleAccount;
 	}
+	
+	/**
+	 * count 是创建对象的计数器
+	 */
+	private static int count;
+	public static  Account getInstance1() {
+			return  count++<3 ? new Account() : getInstance();
+	}
 	@Override
 	public String toString() {
 		return "Account [id=" + id + ", name=" + name + ", money=" + money + "]";

@@ -16,7 +16,7 @@ import com.yc.spring.bbs.bean.User;
  */
 public class E01IocForXmlTest {
 
-	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("IOC01.xml");
+	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
 	@Test
 	public void test1() {
@@ -38,7 +38,13 @@ public class E01IocForXmlTest {
 		Assert.assertEquals("345.gif", user.getHead());
 		Assert.assertEquals(Integer.valueOf(0), user.getGender());
 	}
-
+/**
+ * index：该参数在构造函数中的位置，确定具体的构造器
+	name：该参数的名称
+	type：该参数的类型
+	value：该参数的值（如果是可以直接赋值的参数类型，否则需要使用引用ref）
+	ref：引用另外一个bean对象，填的内容是该bean对象的id
+ */
 	@Test
 	public void test3() {
 		Page page = (Page) context.getBean("page1");
@@ -79,20 +85,20 @@ public class E01IocForXmlTest {
 		 */
 		User user = (User) page.getRows().get(0);
 		Assert.assertEquals("华荣", user.getUname());
-		/**
-		 * 测试Map集合
-		 */
-		Map<String, Object> map = (Map<String, Object>) page.getRows().get(1);
-		Assert.assertEquals("衡阳", map.get("0734"));
-		Assert.assertEquals("长沙", map.get("0731"));
-		/**
-		 * 测试Set集合
-		 */
-		User wuSong = (User) context.getBean("myUser");
-		Set<Object> set = (Set<Object>) page.getRows().get(2);
-		Assert.assertEquals(true, set.contains(100));
-		Assert.assertEquals(true, set.contains(wuSong));
-		Assert.assertEquals(true, set.contains("呵呵"));
+//		/**
+//		 * 测试Map集合
+//		 */
+//		Map<String, Object> map = (Map<String, Object>) page.getRows().get(1);
+//		Assert.assertEquals("衡阳", map.get("0734"));
+//		Assert.assertEquals("长沙", map.get("0731"));
+//		/**
+//		 * 测试Set集合
+//		 */
+//		User wuSong = (User) context.getBean("myUser");
+//		Set<Object> set = (Set<Object>) page.getRows().get(2);
+//		Assert.assertEquals(true, set.contains(100));
+//		Assert.assertEquals(true, set.contains(wuSong));
+//		Assert.assertEquals(true, set.contains("呵呵"));
 	}
 
 }

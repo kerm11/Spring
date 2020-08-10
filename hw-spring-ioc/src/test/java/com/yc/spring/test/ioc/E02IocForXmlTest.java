@@ -32,10 +32,23 @@ public class E02IocForXmlTest {
 	
 	@Test
 	public void test3() {
+		/**
+		 * java.lang.AssertionError:
+		 *  expected: com.yc.spring.bank.bean.Account<Account [id=null, name=null, money=null]>
+		 *   but was: com.yc.spring.bank.bean.Account<Account [id=null, name=null, money=null]>
+		 */
 		Account a1 = (Account) cxt.getBean("account2");
 		Account a2 = (Account) cxt.getBean("account2");
 		Account a3 = (Account) cxt.getBean("account3");
 		Account a4 = (Account) cxt.getBean("account3");
+		System.out.println(a1);
+		System.out.println(a2);
+		System.out.println(a3);
+		System.out.println(a4);
+		System.out.println(a1==a2);
+		System.out.println(a3==a4);
+		System.out.println(a1==a3);
+		System.out.println(a2==a4);
 		Assert.assertEquals(a1, a2);
 		Assert.assertEquals(a3, a4);
 		

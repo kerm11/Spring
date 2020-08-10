@@ -93,7 +93,7 @@ public class HelloTest {
 		Person p1 = (Person) ctx.getBean("p2");
 		Assert.assertEquals("吴用", p1.getName());
 		Assert.assertEquals(38, p1.getAge());
-		Assert.assertEquals("华荣", p1.getFriend());
+		Assert.assertEquals("华荣", p1.getFriend().getName());
 	}
 	
 	@Test
