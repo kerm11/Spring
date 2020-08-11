@@ -109,4 +109,11 @@ public class HelloTest {
 		Assert.assertEquals("扈三娘", p1.getName());
 		Assert.assertEquals(20, p1.getAge());
 	}
+	
+	@Test
+	public void test7() {
+		System.out.println("======test7====");
+		Hello h0 =(Hello)ctx.getBean("hello2");
+		h0.sayHello();
+	}
 }

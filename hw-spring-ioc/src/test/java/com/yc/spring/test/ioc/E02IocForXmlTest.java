@@ -71,7 +71,7 @@ public class E02IocForXmlTest {
 		Account a5 = (Account) cxt.getBean("account4");
 		Account a6 = (Account) cxt.getBean("account4");
 		Account a7 = (Account) cxt.getBean("account4");
-		
+		//a1,a2,a3不相等  a4,a5,a6,a7相等
 		Assert.assertNotEquals(a1, a2);
 		Assert.assertNotEquals(a1, a3);
 		Assert.assertNotEquals(a1, a4);

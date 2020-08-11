@@ -38,58 +38,61 @@
    			</list> 		
    		</property>
    	</bean>
+		<bean  id="p1" class="com.yc.spring.bbs.bean.Board">
+			<constructor-arg name="boardid"  value="300"/>
+		  	<constructor-arg name="boardname"  value="java"/>
+			<constructor-arg name="parentid"  value="0"/>		
+		</bean>	
    	
    	<!-- ref 引用其他的bean -->
 	<bean  id="board" class="com.yc.spring.bbs.bean.Board">
 		<constructor-arg name="boardid"  value="100"/>
    		<constructor-arg name="boardname"  value="jsp"/>
 		<constructor-arg name="parentid"  value="200"/>
-		<property name="parent" >
-			<bean  class="com.yc.spring.bbs.bean.Board">
-				<constructor-arg name="boardid"  value="300"/>
-		   		<constructor-arg name="boardname"  value="java"/>
-				<constructor-arg name="parentid"  value="0"/>		
-			</bean>	
+		<property name="parent"  ref="p1">
 		</property>
 		<property name="topicList" >
 			<list>
 				<null></null>
 				<null></null>
 				<null></null>
-				<bean class="com.yc.spring.bbs.bean.Topic">
-					<property name="uid">
-							<value type="java.lang.Integer">400</value>
-					</property>
-				</bean>
+				<ref bean="p2"  />
 				<null ></null>
 			</list>		
 		</property>
 	</bean>
 
-	<bean  id="page2" class="com.yc.spring.bbs.bean.Page">
-   	
+	<bean id="p2" class="com.yc.spring.bbs.bean.Topic">
+					<property name="uid">
+							<value type="java.lang.Integer">400</value>
+					</property>
+	</bean>
+	
+	<bean  id="page2" class="com.yc.spring.bbs.bean.Page">   	
    		<property name="total"  value="200"></property>
    		<property name="rows">
    			<list>
    				<bean	class="com.yc.spring.bbs.bean.User">
    					<property name="uname"  value="华荣"></property>
    				</bean>
-   				<map>
-   					 <entry key="衡阳" value="0734"/>
-			          <entry key="长沙" value="0731"/>
+   				<map  key-type="java.lang.String" value-type="java.lang.String">
+   					 <entry key="0734"   value="衡阳"/>
+			          <entry key="0731"   value="长沙"/>
    				</map>
+   				
    				<set>
    						<value type="java.lang.Integer">100</value>
-   						<value >100</value>
+   						<value >wuSong</value>
+   						<value type="java.lang.String">呵呵</value>
    						<ref bean="myUser"  />
    				</set>
    			</list> 	   		
    		</property>
    	</bean>
 
-	<bean  id="p3" class="com.yc.spring.bbs.bean.User">
+<!-- 	<bean  id="p3" class="com.yc.spring.bbs.bean.User">
 		<property name="uname"  value="华荣"></property>	
-	</bean>
+	</bean>  -->
 
 </beans>
 <!-- 作业, 导入该工程到eclipse, 完成xml文件配置, 使单元测试可以运行通过( 注解配置先跳过 ) -->

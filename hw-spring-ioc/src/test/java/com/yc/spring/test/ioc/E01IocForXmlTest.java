@@ -85,20 +85,20 @@ public class E01IocForXmlTest {
 		 */
 		User user = (User) page.getRows().get(0);
 		Assert.assertEquals("华荣", user.getUname());
-//		/**
-//		 * 测试Map集合
-//		 */
-//		Map<String, Object> map = (Map<String, Object>) page.getRows().get(1);
-//		Assert.assertEquals("衡阳", map.get("0734"));
-//		Assert.assertEquals("长沙", map.get("0731"));
-//		/**
-//		 * 测试Set集合
-//		 */
-//		User wuSong = (User) context.getBean("myUser");
-//		Set<Object> set = (Set<Object>) page.getRows().get(2);
-//		Assert.assertEquals(true, set.contains(100));
-//		Assert.assertEquals(true, set.contains(wuSong));
-//		Assert.assertEquals(true, set.contains("呵呵"));
+		/**
+		 * 测试Map集合
+		 */
+		Map<String, Object> map = (Map<String, Object>) page.getRows().get(1);
+		Assert.assertEquals("衡阳", map.get("0734"));
+		Assert.assertEquals("长沙", map.get("0731"));
+		/**
+		 * 测试Set集合
+		 */
+		User wuSong = (User) context.getBean("myUser");
+		Set<Object> set = (Set<Object>) page.getRows().get(2);
+		Assert.assertEquals(true, set.contains(100));
+		Assert.assertEquals(true, set.contains(wuSong));
+		Assert.assertEquals(true, set.contains("呵呵"));
 	}
 
 }

@@ -66,4 +66,28 @@
 	
 	<bean  id="PersonFactory" class="com.yc.spring.bean.Person" ></bean>
 	
+	<!-- prototype 模式每次都会创建新的bean，每次调用new or 工厂方法			
+			lazy-init : 懒加载，默认为false，Spring容器在启动时，就会创建所有未配置懒加载bean
+			prototype 原型模式下默认懒加载
+	 -->
+	<bean id="hello2" class="com.yc.spring.Hello"  lazy-init="true">
+		<constructor-arg name="a" value="100"></constructor-arg>
+	</bean>
+	
+	<!-- 
+		autowire="default" 自动装载，根据一些规则自动的从IOC容器获取属性值
+		byName: 用属性名从容器中获取中获取指定id的bean
+		byType:	用类名从容器中获取指定雷星父容
+		construtcor:
+		default:	 ==>no 不自动装载
+	 -->
+	 
+	 <bean id="friend" class="com.yc.spring.bean.Person">
+	 		<property ></property>
+	 </bean>
+	 
+	 
+	 
+	 
+	 
 </beans>
