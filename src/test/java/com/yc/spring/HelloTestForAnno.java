@@ -4,65 +4,36 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.yc.spring.bean.Person;
 import com.yc.spring.dao.UserDao;
 
-
-
-public class HelloTest {
+public class HelloTestForAnno {
 	
-	
-	private ClassPathXmlApplicationContext ctx;
+	private AnnotationConfigApplicationContext ctx;
 	@Before
 	public void before() {
-		ctx = new 	ClassPathXmlApplicationContext("beans.xml");
+		ctx = new 	AnnotationConfigApplicationContext(BeanConfig.class);
 	}
 	
 	@After
 	public void after() {
 		ctx.close();
 	}
-	//Hello h =new  Hello();
-	/**
-	 * Spring 框架解决的问题
-	 * Servlet
-	 * 		UserBiz ubiz = new UserBiz();
-	 * 1.   new ==>  创建对象 ==>内存中占用存储对象的空间
-	 * 				每次new都会创建一个新的对象 ==>内存消耗大
-	 * 				解决的方式：使用对象池
-	 * 				对象池.get对象 获取对象
-	 * 2.耦合性问题
-	 * 				对象可以任意在运行期设置为指定的子类现实类
-	 * 
-	 * 		控制反转
-	 * 				对象创建由程序员决定
-	 * 				对象的创建由容器决定
-	 */
+
 	@Test
 	public void test() {
-		//从Spring 框架(容器)中获取一个Hello对象
-		//创建Spring容器对象
-		ClassPathXmlApplicationContext ctx = new 	ClassPathXmlApplicationContext("beans.xml");
-
-		Hello h =(Hello)ctx.getBean("hello");
-		
+		Hello h =(Hello)ctx.getBean("hello");		
 		Hello h1 =(Hello)ctx.getBean("hello");
 		Hello h2 =(Hello)ctx.getBean("hello");
-		
-		//h1和h2是同一个对象
 		System.out.println(h1==h2);
-		//执行sayHello方法
-		h.sayHello();
-		
+		h.sayHello();		
 		ctx.close();
 	}
 	
 	@Test
 	public void test1() {
-		ClassPathXmlApplicationContext ctx = new 	ClassPathXmlApplicationContext("beans.xml");
-		//UserDao udao1=new MySQLUserDao();
 		UserDao udao1 = (UserDao) ctx.getBean("mdao");
 		UserDao udao2 = (UserDao) ctx.getBean("odao");
 		
@@ -112,10 +83,6 @@ public class HelloTest {
 	
 	@Test
 	public void test7() {
-		/**
-		 * 所谓的懒加载机制就是可以规定指定的bean不在启动时立即创建，
-		 * 而是在后续第一次用到时才创建，从而减轻在启动过程中对时间和内存的消耗。
-		 */
 		System.out.println("======test7====");
 		Hello h0 =(Hello)ctx.getBean("hello2");
 		h0.sayHello();

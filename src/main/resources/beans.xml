@@ -74,17 +74,26 @@
 		<constructor-arg name="a" value="100"></constructor-arg>
 	</bean>
 	
+	<!--  生命周期方法 init初始化，destroy 销毁一些资源-->
+	<bean id="hello3" class="com.yc.spring.Hello"  init-method="init" destroy-method="destroy">
+		
+	</bean>
+	
 	<!-- 
-		autowire="default" 自动装载，根据一些规则自动的从IOC容器获取属性值
+		autowire="default" 自动装载，根据一些规则自动的从IOC容器获取属性值  必须伪ref引用
 		byName: 用属性名从容器中获取中获取指定id的bean
 		byType:	用类名从容器中获取指定雷星父容
 		construtcor:
 		default:	 ==>no 不自动装载
 	 -->
-	 
-	 <bean id="friend" class="com.yc.spring.bean.Person">
-	 		<property ></property>
+	 <bean  id="friend" class="com.yc.spring.bean.Person" >
+	 		<property name="name"  value="鲁智深"></property>
 	 </bean>
+	<bean  id="p7" class="com.yc.spring.bean.Person" autowire="byName">
+		<property name="name"  value="吴用"></property>
+   		<property name="age"  value="38"></property>
+<!--	<property name="friend"  ref="p3"></property>   -->	
+	</bean>
 	 
 	 
 	 

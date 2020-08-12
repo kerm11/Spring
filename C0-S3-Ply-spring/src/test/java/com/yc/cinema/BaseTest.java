@@ -1,18 +1,23 @@
 package com.yc.cinema;
 
+import javax.annotation.Resource;
+
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.test.context.ContextConfiguration;
 
 import com.yc.cinema.web.IndexAction;
 import com.yc.cinema.web.MovieAction;
 import com.yc.cinema.web.UserAction;
-
+@ContextConfiguration( classes = BeanConfig.class)
+//@ContextConfiguration("beans.xml") xml方式
 public class BaseTest {
-
+	
+	//@Resource
 	private IndexAction iAction;
-
+	//@Resource
 	private MovieAction mAction;
-
+	@Resource
 	private UserAction uAction;
 
 	@Test

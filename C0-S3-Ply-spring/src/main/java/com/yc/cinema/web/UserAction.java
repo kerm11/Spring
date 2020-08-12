@@ -1,12 +1,19 @@
 package com.yc.cinema.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.yc.cinema.biz.CommentsBiz;
 import com.yc.cinema.biz.UserBiz;
 
+
+@Controller
 public class UserAction {
 	
+	@Autowired    //根据类型到容器中获取指定的bean,设置到当前属性中
 	private UserBiz ubiz;
 	
+	@Autowired
 	private CommentsBiz cbiz;
 
 	public UserBiz getUbiz() {
