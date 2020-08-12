@@ -2,6 +2,8 @@ package com.yc.cinema.bean;
 
 import java.util.Date;
 
+
+
 public class User {
     private Integer id;
 

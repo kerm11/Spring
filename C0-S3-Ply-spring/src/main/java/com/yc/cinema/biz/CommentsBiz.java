@@ -9,6 +9,7 @@ import com.yc.cinema.dao.CommentsDao;
 import com.yc.cinema.dao.MovieDao;
 @Service
 public class CommentsBiz {
+	
 	@Autowired //根据类型注入 Spring 提供
 	private UserBiz ubiz;
 

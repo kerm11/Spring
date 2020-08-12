@@ -4,15 +4,19 @@ import javax.annotation.Resource;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.yc.cinema.web.IndexAction;
 import com.yc.cinema.web.MovieAction;
 import com.yc.cinema.web.UserAction;
-@ContextConfiguration( classes = BeanConfig.class)
 //@ContextConfiguration("beans.xml") xml方式
+//Spring提供测试运行器
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = BeanConfig.class)
 public class BaseTest {
-	
+
 	//@Resource
 	private IndexAction iAction;
 	//@Resource
@@ -20,6 +24,14 @@ public class BaseTest {
 	@Resource
 	private UserAction uAction;
 
+	
+	/**
+	 * 依赖版本不一致
+	 * java.lang.Exception: No tests found matching 
+	 		[{ExactMatcher:fDisplayName=test1], {ExactMatcher:fDisplayName=test1(com.yc.cinema.BaseTest)],
+	 		 {LeadingIdentifierMatcher:fClassName=com.yc.cinema.BaseTest,fLeadingIdentifier=test1]]
+	 		  from org.junit.internal.requests.ClassRequest@4c203ea1
+	 */
 	@Test
 	public void test1() {
 		Assert.assertNotNull(uAction);
