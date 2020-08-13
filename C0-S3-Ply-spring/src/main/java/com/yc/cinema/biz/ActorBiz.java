@@ -1,9 +1,13 @@
 package com.yc.cinema.biz;
 
-import com.yc.cinema.dao.ActorDao;
+import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
+import com.yc.cinema.dao.ActorDao;
+@Service
 public class ActorBiz {
-	
+	@Resource
 	private ActorDao adao;
 
 	public ActorDao getAdao() {
