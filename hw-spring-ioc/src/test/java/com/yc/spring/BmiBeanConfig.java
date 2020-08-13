@@ -7,8 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+import com.yc.spring.bmi.BmiFilter;
 import com.yc.spring.bmi.Container;
-
+import com.yc.spring.bmi.Filter;
 import com.yc.spring.bmi.Person;
 
 @Configuration
@@ -19,7 +20,16 @@ public class BmiBeanConfig {
 	@Qualifier("ctn")
 	private Container ctn;
 	
-	
+	@Bean
+	public Filter getFilter() {
+		BmiFilter f= new BmiFilter();
+		//设置身高和体重的最大和最小值
+		f.setMinHeight(1);
+		f.setMaxHeight(3);
+		f.setMinWeight(30);
+		f.setMaxWeight(200);
+		return f;
+	}
 
 	@Bean
 	@Primary  // 主bean注解
@@ -49,11 +59,6 @@ public class BmiBeanConfig {
 		//群演的武松被多此添加
 		ctn.add(p1);
 		ctn.add(p2);
-		ctn.add(p3);
-		ctn.add(p3);
-		ctn.add(p3);
-		ctn.add(p3);
-		ctn.add(p3);
 		ctn.add(p3);
 		ctn.add(p3);
 		ctn.add(p3);

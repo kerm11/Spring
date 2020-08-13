@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Primary;
 
 import com.yc.spring.bean.Person;
 import com.yc.spring.dao.MySQLUserDao;
-import com.yc.spring.dao.OracleUserDao;
+
 
 /**
  * 注解方式配置IOC容器

@@ -35,6 +35,6 @@
      
       <bean class="com.yc.spring.bmi.BmiFilter"/> 
        <bean class="com.yc.spring.bmi.BmiMeasurer" />
-     
+   </beans>  
      
      
