@@ -1,5 +1,7 @@
 package com.yc.spring;
 
+import javax.annotation.Resource;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ public class AOPTest {
 	@Qualifier("mdao") //指定注入的组件的id
 	private UserDao mdao;
 //	private MySQLUserDao mdao;
+//	@Resource
 	@Autowired
 	@Qualifier("odao")
 	private UserDao odao;
@@ -24,9 +27,9 @@ public class AOPTest {
 	@Test
 	public void test1() {
 		System.out.println("======1=====");
-		mdao.selectUserId("");
-		System.out.println("======2=====");
 		odao.selectUserId("");
+		System.out.println("======2=====");
+		mdao.selectUserId("");
 		System.out.println("======3=====");
 	}
 }
