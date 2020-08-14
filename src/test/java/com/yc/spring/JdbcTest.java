@@ -15,6 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.yc.spring.bank.biz.BankBiz;
+import com.yc.spring.bank.biz.BizException;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration("/jdbc.xml")
@@ -38,13 +39,13 @@ public class JdbcTest {
 	}
 	
 	@Test
-	public void test3() {
-		bbiz.save(6,500);//使账户增加500,并增加流水记录
+	public void test3() throws BizException {
+		bbiz.save(3,1000);//使账户增加500,并增加流水记录
 	}
 	
 	
 	@Test
-	public void test4() {
+	public void test4() throws BizException {
 		bbiz.transfer(3,6,1000);//3给6转账1000,并增加流水记录
 	}
 	
