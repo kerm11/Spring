@@ -12,7 +12,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
+@Component//通用注解
 public class MyAspect {
 	//aspectj的切点表达式
 	//execution 定义要拦截方法签名的描述

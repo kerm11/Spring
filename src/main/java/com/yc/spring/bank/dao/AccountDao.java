@@ -31,6 +31,7 @@ public class AccountDao {
 		return jdbcTemplate.update("update  account set balance = balance+ ? where accountid = ? ", money,id);		
 	}
 	
+	//查询
 	public Account selectById(int id) {
 		String sql="select * from account where accountid=?";
 		Object[] args = {id};

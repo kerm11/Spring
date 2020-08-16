@@ -15,7 +15,7 @@ import com.yc.spring.dao.UserDao;
 @ContextConfiguration(  classes = AOPConfig.class)
 public class AOPTest {
 	@Autowired	
-	@Qualifier("mdao") //指定注入的组件的id
+	@Qualifier("mdao") //指定注入的组件的id  因为都是userdao 所以要指定名字
 	private UserDao mdao;
 	@Autowired
 	@Qualifier("odao")

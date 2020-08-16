@@ -59,7 +59,8 @@ public class BankBiz {
 				throw new BizException("存取款金额不能大于999！");
 			}
 //		} catch (BizException e) {
-//			// 将该编译器异常转型为运行期异常
+//			// 将该编译器异常转型为运行期异常    抛出此方法没有错误，说明是运行期异常
+			//若抛出异常，还要在方法名后进行声明，那就是编译期异常
 //			throw new DataAccessResourceFailureException("异常转型",e);
 //		}
 		

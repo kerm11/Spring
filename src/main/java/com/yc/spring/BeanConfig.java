@@ -22,21 +22,21 @@ public class BeanConfig {
 
 	//xml中的每一个bean对应java的一个方法，这个方法返回bean对象
 	//方法名没有限定
-//	@Bean(name="hello")
-//	public Hello getHello() {
-//		return new Hello();
-//	}
+	@Bean(name="hello")
+	public Hello getHello() {
+		return new Hello();
+	}
 //	
 //	@Bean(name="odao")
 //	public OracleUserDao getOracleUserDao() {
 //		return new OracleUserDao();
 //	}
 
-	@Bean(name="mdao")
-	public MySQLUserDao getMySQLUserDao() {
-		return new MySQLUserDao();
-	}
-	
+//	@Bean(name="mdao")
+//	public MySQLUserDao getMySQLUserDao() {
+//		return new MySQLUserDao();
+//	}
+//	
 	@Bean(name="p1")
 	public Person getPerson1() {
 		Person ret= new Person();
